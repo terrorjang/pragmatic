@@ -2,44 +2,46 @@
 
 {% block content %}
 
-<div>
+  <div>
     <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
-        <p>
-            {{ target_user.date_joined }}
-        </p>
+      <p>
+        {{ target_user.date_joined }}
+      </p>
 
+      <img src="{{ target_user.profile.image.url }}" alt="" style="height: 12rem; width: 12rem; border-radius: 20rem; margin-bottom: 2rem;">
 
-        {% if target_user.profile %}
+      {% if target_user.profile %}
         <h2>
-            {{ target_user.profile.nickname }}
+          {{ target_user.profile.nickname }}
+          <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+            edit
+          </a>
         </h2>
-        {% else %}
+      {% else %}
         <a href="{% url 'profileapp:create'%}">
-            <p>
-                Create Profile
-            </p>
+          <p>
+            Create Profile
+          </p>
         </a>
-        {% endif %}
+      {% endif %}
 
-        {% if target_user == user %}
+      <h5 style="margin-bottom: 3rem;">
+        {{ target_user.profile.message }}
+      </h5>
+
+      {% if target_user == user %}
         <a href="{% url 'accountapp:update' pk=user.pk %}">
-            <p>
-                Change info
-            </p>
+          <p>
+            Change info
+          </p>
         </a>
         <a href="{% url 'accountapp:delete' pk=user.pk %}">
-            <p>
-                Quit
-            </p>
+          <p>
+            Quit
+          </p>
         </a>
-        {% endif %}
+      {% endif %}
     </div>
-</div>
-
-
+  </div>
 
 {% endblock content %}
-
-
-
-
