@@ -1,0 +1,6 @@
+
+appname = 'profileapp'
+
+urlpatterns = [
+    
+]
