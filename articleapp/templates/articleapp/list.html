@@ -3,20 +3,27 @@
 {% block content %}
 
 <style>
-  .container div {
-    width: 250px;
-    /* height: 500px; */
-    background-color: antiquewhite;
+.container {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.container a {
+    width: 45%;
+    max-width: 250px;
+}
+
+.container div {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
     border-radius: 1rem;
-  }
-  .container img {
+}
+.container img {
     width: 100%;
     border-radius: 1rem;
-  }
+}
 
 </style>
   {% if article_list %}
